@@ -1,0 +1,10 @@
+map_data = pd.read_csv('map.csv',encoding='cp949')
+for i in range(len(map_data)):
+    variable_name = str(round(map_data.loc[i][2],5)) + '   '+ str(round(map_data.loc[i][3],5)) +'   '+ str(round(map_data.loc[i][5],5))
+    try:
+        urllib.request.urlretrieve(map_data.iloc[i][7], variable_name + ".jpg")
+    except:
+        print(i)
+        print(map_data.iloc[i][7])
+        print('실패')
+        continue
